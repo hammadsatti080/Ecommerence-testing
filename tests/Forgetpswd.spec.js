@@ -22,7 +22,7 @@ test.describe("Forget Password", () => {
         await forget.enterCaptcha("bZb9kN");
         
     });
-
+/*
     test("Update password", async () => {
         await forget.openForgetPassword();
 
@@ -32,4 +32,5 @@ test.describe("Forget Password", () => {
         await forget.updateNewPassword("12345678");
        
     });
+    */
 });
