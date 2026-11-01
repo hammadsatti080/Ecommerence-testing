@@ -13,6 +13,9 @@ import { defineConfig, devices } from '@playwright/test';
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
+
+   
+
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -33,21 +36,37 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
 
+
+  
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'],
+          actionTimeout: 30000,
+    navigationTimeout: 60000,
+       },
+       timeout : 90000,
     },
 
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: { ...devices['Desktop Firefox'],
+            actionTimeout: 30000,
+    navigationTimeout: 60000,
+
+       },
+        timeout: 90000,
+
     },
 
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      use: { ...devices['Desktop Safari'],
+          actionTimeout: 30000,
+    navigationTimeout: 60000,
+       },
+       timeout:90000,
     },
 
     /* Test against mobile viewports. */
